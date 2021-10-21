@@ -1,0 +1,44 @@
+# Static project files
+/media/
+/static/
+/tmp/
+
+# Python files
+.Python
+.python-version
+*.pyc
+__pycache__
+pip-selfcheck.json
+
+# OS and project files
+.DS_Store
+.template-version
+.vscode
+.pytest_cache/
+.env
+*.swp
+/.vagrant/
+/docs/_build/
+/bin/
+/include/
+/lib/
+/wagtaillive/settings/local.py
+/Vagrantfile.local
+/venv/
+db.sqlite3
+nosetests.xml
+docenv
+env
+requirements.txt.done
+src/
+stats/
+.idea/
+
+# Coverage
+.coverage
+coverage.xml
+htmlcov/
+
+# logs
+error.log
+log/

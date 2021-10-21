@@ -7,6 +7,7 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
+from wagtail_live import urls as live_urls
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
@@ -16,8 +17,9 @@ urlpatterns = [
 
     path('search/', search_views.search, name='search'),
 
-]
+    path('wagtail_live/', include(live_urls)),
 
+]
 
 if settings.DEBUG:
     from django.conf.urls.static import static

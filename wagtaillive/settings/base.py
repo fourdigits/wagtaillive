@@ -157,10 +157,12 @@ MEDIA_URL = '/media/'
 
 # Wagtail settings
 
-WAGTAIL_SITE_NAME = "wagtaillive"
+WAGTAIL_SITE_NAME = "Wagtail Live"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
 
 WAGTAIL_LIVE_PAGE_MODEL = "liveblog.models.LiveBlogPage"
+WAGTAIL_LIVE_RECEIVER = "wagtail_live.receivers.slack.SlackEventsAPIReceiver"
+WAGTAIL_LIVE_PUBLISHER = "wagtail_live.publishers.piesocket.PieSocketPublisher"
