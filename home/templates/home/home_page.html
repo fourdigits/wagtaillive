@@ -1,21 +1,37 @@
-{% extends "base.html" %}
-{% load static %}
+{% load static wagtailcore_tags wagtailuserbar %}
 
-{% block body_class %}template-homepage{% endblock %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% wagtail_site as current_site %}
+                {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-{% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
-{% endblock extra_css %}
+    <body class="template-homepage">
+        {% wagtailuserbar %}
 
-{% block content %}
+        {% include 'home/welcome_page.html' %}
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-{% include 'home/welcome_page.html' %}
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/wagtaillive.js' %}"></script>
 
-{% endblock content %}
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>
