@@ -265,3 +265,7 @@ footer {
 }
 
 /** ------ */
+
+.block-image img {
+    height: auto;
+}
