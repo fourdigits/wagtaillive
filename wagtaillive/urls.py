@@ -8,6 +8,11 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
 from wagtail_live import urls as live_urls
+from wagtail_live.webapp import urls as webapp_urls
+
+from django.contrib.auth.decorators import login_required
+from decorator_include import decorator_include
+
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
@@ -16,6 +21,8 @@ urlpatterns = [
     path('documents/', include(wagtaildocs_urls)),
 
     path('search/', search_views.search, name='search'),
+
+    path('webapp/', decorator_include(login_required, include(webapp_urls))),
 
     path('wagtail_live/', include(live_urls)),
 

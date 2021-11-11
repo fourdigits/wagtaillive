@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'search',
     'liveblog',
     'wagtail_live',
+    'wagtail_live.webapp',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -157,7 +158,7 @@ WAGTAIL_SITE_NAME = "Wagtail Live"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://example.com'
+BASE_URL = 'https://wagtaillive.fourdigits.nl'
 
 WAGTAIL_LIVE_PAGE_MODEL = "liveblog.models.LiveBlogPage"
 WAGTAIL_LIVE_RECEIVER = "wagtail_live.receivers.slack.SlackEventsAPIReceiver"
